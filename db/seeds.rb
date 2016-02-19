@@ -1,0 +1,2 @@
+user1 = User.create(name: "Biana", email: "bsemp@gmail.com", password: "heyheyhey", password_confirmation: "heyheyhey")
+user2 = User.create(name: "Anais", email: "anais@gmail.com", password: "heyheyhey", password_confirmation: "heyheyhey")
