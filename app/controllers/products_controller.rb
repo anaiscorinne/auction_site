@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-		before_action :authenticate_user!, except: :all_index
+		before_action :authenticate_user!, except: [:all_index, :product_show]
 
 	def all_index
 		@products = Product.all
