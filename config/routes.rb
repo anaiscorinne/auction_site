@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/" => 'users#home'
-  get "/products" => 'products#index'
+  get "/products" => 'products#all_index'
+  get "/products/:id" => 'products#product_show'
 
   resources :users, only: [:show] do
     resources :products, only: [:index, :show, :create, :new, :destroy] do

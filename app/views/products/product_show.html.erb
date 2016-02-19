@@ -1,0 +1,10 @@
+<h1>Product Details:</h1>
+<h3><%= @product.title %></h3>
+<p><strong>Deadline:</strong><br>
+	<%= @product.deadline %><p>
+<p><strong>Description:</strong><br>
+	<%= @product.description %>
+</p>
+<p><%= link_to("Back to the products page", products_path) %></p>
+<p><%= link_to("Back to the Homepage", "/") %></p>
+
