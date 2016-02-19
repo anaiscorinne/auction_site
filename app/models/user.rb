@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
   has_many :products
   has_many :bids
+  has_many :reviews
 end
