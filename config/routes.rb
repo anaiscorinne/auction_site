@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get "/" => 'users#home'
   get "/products" => 'products#all_index'
   get "/products/:id" => 'products#product_show'
-
+  get "/products/:id/reviews" => 'reviews#index'
+  
   resources :users, only: [:show] do
-    resources :products, only: [:index, :show, :create, :new, :destroy] do
+    resources :products, only: [:index, :create, :new, :destroy] do
+      resources :reviews, only: [:create, :new]
       resources :bids, only: [:create, :new]
     end
   end

@@ -1,0 +1,8 @@
+
+<ul class="js-product-comments">
+	<% @reviews.each do |review| %>
+		<li><h5><%= review.title %></h5>
+		<p><%= review.description %></p></li>
+		<hr>
+	<% end %>
+</ul>

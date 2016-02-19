@@ -1,0 +1,11 @@
+<%= form_for [@user, @product, @review] do |f| %>
+ <%= f.label :title %><br>
+ <%= f.text_field :title %>
+<br><br>
+	<%= f.label :description %><br>
+	<%= f.text_area :description %>
+<br><br>
+	<%= f.submit :class => "btn btn-primary js-review-button", :data => {:user_id => @user.id, :product_id => @product.id } %>
+<br><br>
+	<%= link_to("Cancel", user_path(@user.id)) %>
+<% end %>
