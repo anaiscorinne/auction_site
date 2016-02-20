@@ -9,17 +9,32 @@ $(document).on("page:change", function() {
  	reviewId = $(this).data("review-id")
  	title = $("#review_title").val()
  	description = $("#review_description").val()
+ 	currentUserId = $(this).data("current-user-id")
  	$.ajax({
  		url: `/users/${userId}/products/${productId}/reviews`,
  		type: "POST",
  		data: {review: {title:title, description:description}}, 
  		success: function(response) {
  			console.log(response)
- 			var html = `
+ 			var html
+ 			if (Number(currentUserId) === Number(userId)) {
+ 				html = `
+				<li class="animated shake"><h5>${title}</h5>
+				<p>${description}</p>
+				<a href="#">edit my review</a>
+				</li>
+				<hr>
+ 			`}
+ 			else {
+ 				console.log(currentUserId)
+ 				console.log(userId)
+
+ 				html = `
 				<li class="animated shake"><h5>${title}</h5>
 				<p>${description}</p></li>
 				<hr>
- 			`
+ 			`}
+ 			
  			$('.js-product-comments').append(html)
  			$('#review_title').val("")
  			$('#review_description').val("")
